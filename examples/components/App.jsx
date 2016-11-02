@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import DualListBox from '../../dist';
-// import '../../dist/style.css';
+import '../../dist/style.css';
 
 class App extends Component {
   state = {
