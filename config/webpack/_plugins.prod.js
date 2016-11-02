@@ -1,9 +1,6 @@
 const webpack = require('webpack');
-const extractCSS = require('./_extractCSS');
 
 module.exports = [
-  extractCSS,
-
   new webpack.optimize.UglifyJsPlugin({
     minimize: true,
     comments: false,

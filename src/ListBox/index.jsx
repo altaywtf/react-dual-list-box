@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 
-// PropTypes
 const { array, func, node, string } = PropTypes;
 const propTypes = {
   options: array,
@@ -23,7 +22,7 @@ class ListBox extends Component {
     const { options } = event.target;
     const selectedValues = [];
 
-    // Using a for loop here becase map does not work on HTML Collection 🤓
+    // Using a for loop here because map does not work on HTML Collection 🤓
     for (let i = 0; i < options.length; i += 1) {
       if (options[i].selected) {
         const value = options[i].value;

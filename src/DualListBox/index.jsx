@@ -4,7 +4,7 @@ import ListBox from '../ListBox';
 
 const { array, func, shape, arrayOf, string, any, node } = PropTypes;
 const propTypes = {
-  value: array,
+  initialValue: array,
   valueType: string,
   options: arrayOf(shape({
     value: any,
@@ -14,6 +14,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  initialValue: [],
   valueType: 'string',
 };
 
@@ -21,7 +22,7 @@ class DualListBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || [],
+      value: props.initialValue || [],
       options: props.options || [],
     };
   }

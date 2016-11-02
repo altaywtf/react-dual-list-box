@@ -45,7 +45,7 @@ class App extends Component {
         <form>
           <DualListBox
             options={options}
-            value={this.state.value}
+            initialValue={this.state.value}
             valueType="number"
             onChange={this.onChange}
           />
