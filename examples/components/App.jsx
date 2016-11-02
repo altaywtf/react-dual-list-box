@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import DualListBox from '../../dist';
-import '../../dist/style.css';
+// import '../../dist/style.css';
 
 class App extends Component {
   state = {
@@ -42,12 +42,14 @@ class App extends Component {
           )}
         </ul>
 
-        <DualListBox
-          options={options}
-          value={this.state.value}
-          valueType="number"
-          onChange={this.onChange}
-        />
+        <form>
+          <DualListBox
+            options={options}
+            value={this.state.value}
+            valueType="number"
+            onChange={this.onChange}
+          />
+        </form>
       </div>
     );
   }

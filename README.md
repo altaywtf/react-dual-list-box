@@ -10,7 +10,7 @@ $ npm install react-dual-list-box --save
 ```
 
 ## Usage
-There is a basic example on [examples folder](/examples/components/App.jsx), which is also live [here](altayaydemir.com/react-dual-list-box).
+There is a basic example on [examples folder](/examples/components/App.jsx), which is also live [here](http://altayaydemir.com/react-dual-list-box).
 
 | Prop | Type | Default Value |
 | :----: |:-------------:|:-----:|

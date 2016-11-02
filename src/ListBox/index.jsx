@@ -46,6 +46,9 @@ class ListBox extends Component {
 
   handleTransfer = () => {
     this.props.onTransfer(this.state.selectedValues);
+    this.setState({
+      selectedValues: [],
+    });
   }
 
   render() {
@@ -63,6 +66,7 @@ class ListBox extends Component {
         <button
           type="button"
           onClick={this.handleTransfer}
+          disabled={options.length === 0}
         >
           {buttonText}
         </button>

@@ -23,6 +23,11 @@
       background: white;
       outline: 0;
     }
+
+    &:disabled {
+      background: darken(white, 5);
+      cursor: not-allowed;
+    }
   }
 
   select {
