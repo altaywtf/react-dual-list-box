@@ -1,33 +1,29 @@
-# React Component Starter
+# React Dual List Box
 
-<p align="center">
-  <img src="https://s10.postimg.org/wtlotfkmx/Desktop_HD.png" />
-  <b>Starter project for crafting React Components.</b>
-</p>
-
-## Features
-
-* [CSS modules](https://github.com/css-modules/) configuration with SCSS syntax, 
-* ESlint configuration with [Airbnb's React Styleguide](https://github.com/airbnb/javascript/tree/master/react), 
-* Testing setup powered by [Jest](https://github.com/facebook/jest) & [Enzyme](https://github.com/airbnb/enzyme/), 
-* Example project configuration which builds into `docs` folder as a static webpage so you can serve it from Github repository.
+A dual list box component for React, with search feature.
 
 ## Installation
 
 ```bash
-$ git clone git@github.com:altayaydemir/react-component-starter.git
-
-$ cd react-component-starter
-
-$ npm install 
+$ npm install react-dual-list-box --save
 
 ```
 
 ## Usage
+There is a basic example on [examples folder](/examples/components/App.jsx), which is also live [here](altayaydemir.com/react-dual-list-box).
+
+
+## Development
 
 ### Development Flow
 
 ```bash
+$ git clone git@github.com:altayaydemir/react-mobile-devices.git
+ 
+$ cd react-mobile-devices
+ 
+$ npm install 
+
 # run this while developing your component
 $ npm run start
 

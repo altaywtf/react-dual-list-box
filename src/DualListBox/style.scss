@@ -1,5 +1,11 @@
 .Wrapper {
-  display: block;
-  font-size: 24px;
-  font-weight: bold;
+  display: flex;
+
+  :global(.ListBox__Wrapper:first-child) {
+    margin-right: 5px;
+  }
+
+  :global(.ListBox__Wrapper:last-child) {
+    margin-left: 5px;
+  }
 }

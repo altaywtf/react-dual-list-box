@@ -1,0 +1,40 @@
+.Wrapper {
+  flex: 1;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: 6px 3px;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    background: white;
+    margin: 5px auto;
+
+    &:hover {
+      background: darken(white, 5);
+      outline: 0;
+    }
+
+    &:focus {
+      background: white;
+      outline: 0;
+    }
+  }
+
+  select {
+    padding: 5px;
+    width: 100%;
+  }
+
+  input, button, select {
+    border: 1px solid #ddd;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}

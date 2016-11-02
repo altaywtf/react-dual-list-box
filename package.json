@@ -1,7 +1,7 @@
 {
-  "name": "react-listbox",
+  "name": "react-dual-list-box",
   "version": "0.0.1",
-  "description": "Starter project for making reusable React Components. Includes linting, testing and example project setup.",
+  "description": "A dual list box component for React, with search feature.",
   "main": "./dist/index.js",
   "scripts": {
     "start": "webpack --watch --config config/webpack/lib.dev.js",
@@ -17,13 +17,13 @@
   ],
   "author": "Altay Aydemir <altay.aydemir@gmail.com>",
   "license": "MIT",
-  "homepage": "http://altayaydemir.github.io/react-listbox",
+  "homepage": "http://altayaydemir.github.io/react-dual-list-box",
   "repository": {
-    "url": "https://github.com/altayaydemir/react-listbox.git",
+    "url": "https://github.com/altayaydemir/react-dual-list-box.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/altayaydemir/react-listbox/issues"
+    "url": "https://github.com/altayaydemir/react-dual-list-box/issues"
   },
   "peerDependencies": {
     "react": ">=15.0",

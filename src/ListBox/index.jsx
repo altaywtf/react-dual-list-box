@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-// import style from './style.scss';
-// import ListBox from '../ListBox';
+import style from './style.scss';
 
 // PropTypes
-const { array, func } = PropTypes;
+const { array, func, node } = PropTypes;
 const propTypes = {
   options: array,
   onTransfer: func,
+  buttonText: node,
 };
 
 class ListBox extends Component {
@@ -43,14 +43,18 @@ class ListBox extends Component {
 
   render() {
     const { selectedValues, filterKeyword } = this.state;
-    const { options } = this.props;
+    const { options, buttonText } = this.props;
 
     return (
-      <div>
-        <input value={filterKeyword} onChange={this.onFilterKeywordChange} />
+      <div className={style.Wrapper}>
+        <input
+          value={filterKeyword}
+          onChange={this.onFilterKeywordChange}
+          placeholder="Search..."
+        />
 
         <button onClick={this.handleTransfer}>
-          Transfer Values
+          {buttonText}
         </button>
 
         <select

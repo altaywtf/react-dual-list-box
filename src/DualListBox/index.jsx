@@ -1,67 +1,66 @@
-import React, { Component } from 'react';
-// import style from './style.scss';
+import React, { Component, PropTypes } from 'react';
+import style from './style.scss';
 import ListBox from '../ListBox';
+
+const { array, func, shape, arrayOf, any, node } = PropTypes;
+const propTypes = {
+  initialValue: array,
+  options: arrayOf(shape({
+    value: any,
+    label: node,
+  })),
+  onChange: func,
+};
 
 class DualListBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterKeyword: '',
-      selectedValues: [],
-      options: [
-        {
-          value: 'A',
-          label: 'Altay',
-        },
-        {
-          value: 'B',
-          label: 'Bora',
-        },
-      ],
+      value: props.initialValue || [],
+      options: props.options || [],
     };
   }
 
-  addSelectedValues = (values) => {
-    const { selectedValues } = this.state;
-
-    this.setState({
-      selectedValues: [...selectedValues, ...values],
-    });
+  addSelectedValues = (selectedValues) => {
+    const updatedValue = [...this.state.value, ...selectedValues];
+    this.setState({ value: updatedValue }, () => this.props.onChange(updatedValue));
   }
 
-  removeSelectedValues = (values) => {
-    const { selectedValues } = this.state;
+  removeSelectedValues = (selectedValues) => {
+    const updatedValue = this.state.value.filter(valueItem =>
+      selectedValues.indexOf(valueItem) < 0
+    );
 
-    this.setState({
-      selectedValues: selectedValues.filter(value => values.indexOf(value) < 0),
-    });
+    this.setState({ value: updatedValue }, () => this.props.onChange(updatedValue));
   }
 
   render() {
     const {
       options,
-      selectedValues,
+      value,
     } = this.state;
 
-    const optionsLeft = options.filter(option => selectedValues.indexOf(option.value) < 0);
-    const optionsRight = options.filter(option => selectedValues.indexOf(option.value) !== -1);
-
-    console.log(optionsLeft, optionsRight);
+    const optionsLeft = options.filter(option => value.indexOf(option.value) < 0);
+    const optionsRight = options.filter(option => value.indexOf(option.value) !== -1);
 
     return (
-      <div>
+      <div className={style.Wrapper}>
         <ListBox
           options={optionsLeft}
           onTransfer={this.addSelectedValues}
+          buttonText=">"
         />
 
         <ListBox
           options={optionsRight}
           onTransfer={this.removeSelectedValues}
+          buttonText="<"
         />
       </div>
     );
   }
 }
+
+DualListBox.propTypes = propTypes;
 
 export default DualListBox;

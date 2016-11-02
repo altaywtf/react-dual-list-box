@@ -1,0 +1,27 @@
+# OS X - DS_Store
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Dependency Directory
+node_modules
+
+# Built Docs
+examples
+docs
+
+# Config
+config
+.editorconfig
+
+# Source Code
+src
+
+# Coverage Reports
+coverage
+
+# Git Related
+.git
+README.md
