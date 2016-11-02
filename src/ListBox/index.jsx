@@ -53,7 +53,10 @@ class ListBox extends Component {
           placeholder="Search..."
         />
 
-        <button onClick={this.handleTransfer}>
+        <button
+          type="button"
+          onClick={this.handleTransfer}
+        >
           {buttonText}
         </button>
 
