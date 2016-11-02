@@ -2,9 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 import ListBox from '../ListBox';
 
-const { array, func, shape, arrayOf, any, node } = PropTypes;
+const { array, func, shape, arrayOf, string, any, node } = PropTypes;
 const propTypes = {
-  initialValue: array,
+  value: array,
+  valueType: string,
   options: arrayOf(shape({
     value: any,
     label: node,
@@ -12,11 +13,15 @@ const propTypes = {
   onChange: func,
 };
 
+const defaultProps = {
+  valueType: 'string',
+};
+
 class DualListBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.initialValue || [],
+      value: props.value || [],
       options: props.options || [],
     };
   }
@@ -49,12 +54,14 @@ class DualListBox extends Component {
           options={optionsLeft}
           onTransfer={this.addSelectedValues}
           buttonText=">"
+          valueType={this.props.valueType}
         />
 
         <ListBox
           options={optionsRight}
           onTransfer={this.removeSelectedValues}
           buttonText="<"
+          valueType={this.props.valueType}
         />
       </div>
     );
@@ -62,5 +69,6 @@ class DualListBox extends Component {
 }
 
 DualListBox.propTypes = propTypes;
+DualListBox.defaultProps = defaultProps;
 
 export default DualListBox;

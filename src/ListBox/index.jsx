@@ -2,11 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 
 // PropTypes
-const { array, func, node } = PropTypes;
+const { array, func, node, string } = PropTypes;
 const propTypes = {
   options: array,
   onTransfer: func,
   buttonText: node,
+  valueType: string,
 };
 
 class ListBox extends Component {
@@ -25,7 +26,13 @@ class ListBox extends Component {
     // Using a for loop here becase map does not work on HTML Collection 🤓
     for (let i = 0; i < options.length; i += 1) {
       if (options[i].selected) {
-        selectedValues.push(options[i].value);
+        const value = options[i].value;
+
+        if (this.props.valueType === 'number') {
+          selectedValues.push(parseInt(value, 10));
+        } else {
+          selectedValues.push(value);
+        }
       }
     }
 

@@ -5,7 +5,7 @@ import '../../dist/style.css';
 
 class App extends Component {
   state = {
-    value: ['ist'],
+    value: [1],
   };
 
   onChange = (value) => {
@@ -16,15 +16,15 @@ class App extends Component {
     const options = [
       {
         label: 'Istanbul',
-        value: 'ist',
+        value: 1,
       },
       {
         label: 'Antalya',
-        value: 'ant',
+        value: 2,
       },
       {
         label: 'Ankara',
-        value: 'ank',
+        value: 3,
       },
     ];
 
@@ -44,7 +44,8 @@ class App extends Component {
 
         <DualListBox
           options={options}
-          initialValue={this.state.value}
+          value={this.state.value}
+          valueType="number"
           onChange={this.onChange}
         />
       </div>
