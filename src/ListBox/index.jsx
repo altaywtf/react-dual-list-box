@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 
-const { array, func, node, string } = PropTypes;
+const { array, func, node, string, bool } = PropTypes;
 const propTypes = {
   options: array,
   onTransfer: func,
   buttonText: node,
   valueType: string,
+  disabled: bool,
 };
 
 class ListBox extends Component {
@@ -52,7 +53,10 @@ class ListBox extends Component {
 
   render() {
     const { selectedValues, filterKeyword } = this.state;
-    const { options, buttonText } = this.props;
+    const { disabled, options, buttonText } = this.props;
+
+    const filteredOptions = options
+      .filter(option => (option.label).toLowerCase().includes(filterKeyword));
 
     return (
       <div className={style.Wrapper}>
@@ -60,12 +64,13 @@ class ListBox extends Component {
           value={filterKeyword}
           onChange={this.onFilterKeywordChange}
           placeholder="Search..."
+          disabled={disabled}
         />
 
         <button
           type="button"
           onClick={this.handleTransfer}
-          disabled={options.length === 0}
+          disabled={options.length === 0 || disabled}
         >
           {buttonText}
         </button>
@@ -74,16 +79,18 @@ class ListBox extends Component {
           multiple
           value={selectedValues}
           onChange={this.onChange}
+          disabled={disabled}
         >
-          {options
-            .filter(option => (option.label).toLowerCase().includes(filterKeyword))
-            .map((option, index) => (
-              <option value={option.value} key={index}>
-                {option.label}
-              </option>
-            ))
-          }
+          {filteredOptions.map((option, index) => (
+            <option value={option.value} key={index}>
+              {option.label}
+            </option>
+          ))}
         </select>
+
+        <span className={style.ItemCount}>
+          {filteredOptions.length} Items
+        </span>
       </div>
     );
   }

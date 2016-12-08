@@ -18,6 +18,7 @@ There is a basic example on [examples folder](/examples/components/App.jsx), whi
 | **initialValue** | arrayOf(string or number) | [ ] |
 | **valueType** | string | "string" |
 | **onChange** | func | - |
+| **disabled** | bool | false |
 
 Since HTML select tag auto formats its option values as string, if your `value` prop is a number (eg: id), you need to pass `valueType="number"` prop to DualListBox component.
 

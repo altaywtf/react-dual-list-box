@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 import ListBox from '../ListBox';
 
-const { array, func, shape, arrayOf, string, any, node } = PropTypes;
+const { array, func, shape, arrayOf, string, any, node, bool } = PropTypes;
 const propTypes = {
   initialValue: array,
   valueType: string,
@@ -11,11 +11,13 @@ const propTypes = {
     label: node,
   })),
   onChange: func,
+  disabled: bool,
 };
 
 const defaultProps = {
   initialValue: [],
   valueType: 'string',
+  disabled: false,
 };
 
 class DualListBox extends Component {
@@ -33,14 +35,14 @@ class DualListBox extends Component {
   }
 
   removeSelectedValues = (selectedValues) => {
-    const updatedValue = this.state.value.filter(valueItem =>
-      selectedValues.indexOf(valueItem) < 0
-    );
+    const { value } = this.state;
+    const updatedValue = value.filter(valueItem => selectedValues.indexOf(valueItem) < 0);
 
     this.setState({ value: updatedValue }, () => this.props.onChange(updatedValue));
   }
 
   render() {
+    const { disabled } = this.props;
     const {
       options,
       value,
@@ -56,6 +58,7 @@ class DualListBox extends Component {
           onTransfer={this.addSelectedValues}
           buttonText=">"
           valueType={this.props.valueType}
+          disabled={disabled}
         />
 
         <ListBox
@@ -63,6 +66,7 @@ class DualListBox extends Component {
           onTransfer={this.removeSelectedValues}
           buttonText="<"
           valueType={this.props.valueType}
+          disabled={disabled}
         />
       </div>
     );
