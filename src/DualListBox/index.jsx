@@ -21,12 +21,19 @@ const defaultProps = {
 };
 
 class DualListBox extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      value: props.initialValue || [],
-      options: props.options || [],
+      value: [],
+      options: [],
     };
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({
+      value: nextProps.initialValue || [],
+      options: nextProps.options || [],
+    });
   }
 
   addSelectedValues = (selectedValues) => {
