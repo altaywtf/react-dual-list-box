@@ -12,6 +12,8 @@ $ npm install react-dual-list-box --save
 ## Usage
 There is a basic example on [examples folder](/examples/components/App.jsx), which is also live [here](http://altayaydemir.com/react-dual-list-box).
 
+Requirements: This requires font-awesome in some shape or form for the button icons.
+
 | Prop | Type | Default Value |
 | :----: |:-------------:|:-----:|
 | **options** | arrayOf(shape({ value: string or number, label: node })) | [ ] |
@@ -19,6 +21,8 @@ There is a basic example on [examples folder](/examples/components/App.jsx), whi
 | **valueType** | string | "string" |
 | **onChange** | func | - |
 | **disabled** | bool | false |
+| **leftButtonIcon** | string (font awesome icon) | angle-double-right |
+| **rightButtonIcon** | string (font awesome icon) | angle-double-left |
 
 Since HTML select tag auto formats its option values as string, if your `value` prop is a number (eg: id), you need to pass `valueType="number"` prop to DualListBox component.
 
