@@ -1,6 +1,6 @@
 {
   "name": "react-dual-list-box",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A dual list box component for React, with search feature.",
   "main": "./dist/index.js",
   "scripts": {
@@ -102,5 +102,8 @@
       "^.+\\.(css|scss)$": "<rootDir>/config/jest/styleMock.js",
       "^.+\\.(jpe?g|png|gif|ttf|eot|svg|md)$": "<rootDir>/config/jest/fileMock.js"
     }
+  },
+  "dependencies": {
+    "lodash.isequal": "^4.5.0"
   }
 }

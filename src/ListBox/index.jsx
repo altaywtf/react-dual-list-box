@@ -89,7 +89,7 @@ class ListBox extends Component {
         </select>
 
         <span className={style.ItemCount}>
-          {filteredOptions.length} Items
+          {filteredOptions.length > 0 ? `${filteredOptions.length} items` : 'No Item'}
         </span>
       </div>
     );

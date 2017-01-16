@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import isEqual from 'lodash.isequal';
+
 import style from './style.scss';
 import ListBox from '../ListBox';
 
@@ -21,19 +23,23 @@ const defaultProps = {
 };
 
 class DualListBox extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      value: [],
-      options: [],
+      value: props.initialValue || [],
+      options: props.options || [],
     };
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    this.setState({
-      value: nextProps.initialValue || [],
-      options: nextProps.options || [],
-    });
+  componentWillReceiveProps(nextProps) {
+    const { initialValue, options } = this.props;
+
+    if (!isEqual(initialValue, nextProps.initialValue) || !isEqual(options, nextProps.options)) {
+      this.setState({
+        value: nextProps.initialValue || [],
+        options: nextProps.options || [],
+      });
+    }
   }
 
   addSelectedValues = (selectedValues) => {
