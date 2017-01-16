@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 
-const { array, func, node, string, bool } = PropTypes;
+const { array, func, string, bool } = PropTypes;
 const propTypes = {
   options: array,
   onTransfer: func,
-  buttonText: node,
+  buttonIcon: string,
   valueType: string,
   disabled: bool,
 };
@@ -53,7 +53,7 @@ class ListBox extends Component {
 
   render() {
     const { selectedValues, filterKeyword } = this.state;
-    const { disabled, options, buttonText } = this.props;
+    const { disabled, options, buttonIcon } = this.props;
 
     const filteredOptions = options
       .filter(option => (option.label).toLowerCase().includes(filterKeyword));
@@ -72,7 +72,7 @@ class ListBox extends Component {
           onClick={this.handleTransfer}
           disabled={options.length === 0 || disabled}
         >
-          {buttonText}
+          <i className={`fa fa-${buttonIcon}`} />
         </button>
 
         <select
