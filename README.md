@@ -12,7 +12,7 @@ $ npm install react-dual-list-box --save
 ## Usage
 There is a basic example on [examples folder](/examples/components/App.jsx), which is also live [here](http://altayaydemir.com/react-dual-list-box).
 
-Requirements: This requires font-awesome in some shape or form for the button icons.
+*Requirement*: This plugin requires the use of font-awesome icons for the button icons. See available props below.
 
 | Prop | Type | Default Value |
 | :----: |:-------------:|:-----:|
