@@ -50,6 +50,8 @@ class ExampleNumber extends Component {
             initialValue={this.state.value}
             valueType="string"
             onChange={this.onChange}
+            leftButtonContent={<b>Custom Left Button Text</b>}
+            rightButtonContent={<b>Custom Right Button Text</b>}
           />
         </form>
       </div>
