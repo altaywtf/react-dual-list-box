@@ -14,12 +14,16 @@ const propTypes = {
   })),
   onChange: func,
   disabled: bool,
+  leftButtonContent: node,
+  rightButtonContent: node,
 };
 
 const defaultProps = {
   initialValue: [],
   valueType: 'string',
   disabled: false,
+  leftButtonContent: '>',
+  rightButtonContent: '<',
 };
 
 class DualListBox extends Component {
@@ -55,7 +59,11 @@ class DualListBox extends Component {
   }
 
   render() {
-    const { disabled } = this.props;
+    const {
+      disabled,
+      leftButtonContent,
+      rightButtonContent,
+    } = this.props;
     const {
       options,
       value,
@@ -69,7 +77,7 @@ class DualListBox extends Component {
         <ListBox
           options={optionsLeft}
           onTransfer={this.addSelectedValues}
-          buttonText=">"
+          buttonContent={leftButtonContent}
           valueType={this.props.valueType}
           disabled={disabled}
         />
@@ -77,7 +85,7 @@ class DualListBox extends Component {
         <ListBox
           options={optionsRight}
           onTransfer={this.removeSelectedValues}
-          buttonText="<"
+          buttonContent={rightButtonContent}
           valueType={this.props.valueType}
           disabled={disabled}
         />
