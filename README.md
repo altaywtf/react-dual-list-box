@@ -1,16 +1,20 @@
 # React Dual List Box
+[![NPM](https://nodei.co/npm/react-dual-list-box.png?downloads=true)](https://nodei.co/npm/react-dual-list-box/)
 
 A dual list box component for React, with search feature.
 
 ## Installation
 
 ```bash
-$ npm install react-dual-list-box --save
+# Yarn
+$ yarn add react-dual-list-box
 
+# NPM
+$ npm install react-dual-list-box --save
 ```
 
 ## Usage
-There is a basic example on [examples folder](/examples/components/App.jsx), which is also live [here](http://altayaydemir.com/react-dual-list-box).
+There is a basic example on [examples folder](/examples/components/App.jsx), which is also live [here](https://altayaydemir.github.io/react-dual-list-box/).
 
 | Prop | Type | Default Value |
 | :----: |:-------------:|:-----:|
