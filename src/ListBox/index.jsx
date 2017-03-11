@@ -1,13 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 
-const { array, bool, func, node, string } = PropTypes;
+const { array, bool, func, node, string, shape } = PropTypes;
 const propTypes = {
   options: array,
   onTransfer: func,
   buttonContent: node,
   valueType: string,
   disabled: bool,
+  texts: shape({
+    item: string,
+    items: string,
+    noItem: string,
+    search: string,
+  }),
 };
 
 class ListBox extends Component {
@@ -53,17 +59,33 @@ class ListBox extends Component {
 
   render() {
     const { selectedValues, filterKeyword } = this.state;
-    const { disabled, options, buttonContent } = this.props;
+    const { disabled, options, buttonContent, texts } = this.props;
 
     const filteredOptions = options
       .filter(option => (option.label).toLowerCase().includes(filterKeyword));
+
+    let itemText = '';
+
+    switch (filteredOptions.length) {
+      case 0:
+        itemText = texts.noItem;
+        break;
+
+      case 1:
+        itemText = `1 ${texts.item}`;
+        break;
+
+      default:
+        itemText = `${filteredOptions.length} ${texts.items}`;
+        break;
+    }
 
     return (
       <div className={style.Wrapper}>
         <input
           value={filterKeyword}
           onChange={this.onFilterKeywordChange}
-          placeholder="Search..."
+          placeholder={texts.search}
           disabled={disabled}
         />
 
@@ -89,7 +111,7 @@ class ListBox extends Component {
         </select>
 
         <span className={style.ItemCount}>
-          {filteredOptions.length > 0 ? `${filteredOptions.length} items` : 'No Item'}
+          {itemText}
         </span>
       </div>
     );

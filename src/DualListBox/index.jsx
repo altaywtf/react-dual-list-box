@@ -16,6 +16,12 @@ const propTypes = {
   disabled: bool,
   leftButtonContent: node,
   rightButtonContent: node,
+  texts: shape({
+    item: string,
+    items: string,
+    noItem: string,
+    search: string,
+  }),
 };
 
 const defaultProps = {
@@ -24,6 +30,12 @@ const defaultProps = {
   disabled: false,
   leftButtonContent: '>',
   rightButtonContent: '<',
+  texts: {
+    item: 'Item',
+    items: 'Items',
+    noItem: 'No Items',
+    search: 'Search...',
+  },
 };
 
 class DualListBox extends Component {
@@ -63,7 +75,9 @@ class DualListBox extends Component {
       disabled,
       leftButtonContent,
       rightButtonContent,
+      texts,
     } = this.props;
+
     const {
       options,
       value,
@@ -80,6 +94,7 @@ class DualListBox extends Component {
           buttonContent={leftButtonContent}
           valueType={this.props.valueType}
           disabled={disabled}
+          texts={texts}
         />
 
         <ListBox
@@ -88,6 +103,7 @@ class DualListBox extends Component {
           buttonContent={rightButtonContent}
           valueType={this.props.valueType}
           disabled={disabled}
+          texts={texts}
         />
       </div>
     );

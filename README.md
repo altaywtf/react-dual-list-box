@@ -25,6 +25,7 @@ There is a basic example on [examples folder](/examples/components/App.jsx), whi
 | **disabled** | bool | false |
 | **leftButtonContent** | node (number, string, html element) | > |
 | **rightButtonContent** | node (number, string, html element) | < |
+| **texts** | object | {{ item: 'Item', items: 'Items', noItem: 'No Items', search: 'Search...' }} |
 
 Since HTML select tag auto formats its option values as string, if your `value` prop is a number (eg: id), you need to pass `valueType="number"` prop to DualListBox component.
 

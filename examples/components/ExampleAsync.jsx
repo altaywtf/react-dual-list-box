@@ -65,6 +65,12 @@ class ExampleAsync extends Component {
             initialValue={this.state.value}
             valueType="string"
             onChange={this.onChange}
+            texts={{
+              item: 'Kayıt',
+              items: 'Kayıt',
+              search: 'Ara...',
+              noItem: 'Hiç Kayıt Yok',
+            }}
           />
         </form>
       </div>
